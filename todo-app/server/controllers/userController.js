@@ -1,4 +1,4 @@
-import { getUsers, addUser, checkUser, deleteUser, updateUser } from "../models/todoModel.js"
+import { getUsers, addUser, checkUser, deleteUser, updateUser } from "../models/userModel.js"
 
 const getUsersController = (req, res) => {
     getUsers((err, users) =>{
@@ -7,7 +7,7 @@ const getUsersController = (req, res) => {
     })
 }
 
-const registerUser = ({ nick, email, password }, res) => {
+const registerUser = (req, res) => {
     const { nick, email, password } = req.body
     if(!nick || !email || !password) return res.status(400).json({ message: "Error" })
 
